@@ -4,17 +4,11 @@
 
 An automatically updated blocklist for [Transmission](https://transmissionbt.com).
 
-Pull data regularly from [I-BLOCKLIST](https://www.iblocklist.com/lists.php) and [mirror.codebucket.de](https://mirror.codebucket.de/transmission/) every day, and generate a blocklist that Transmission understands.
+Pull data regularly from [I-BLOCKLIST](https://www.iblocklist.com/lists.php), [mirror.codebucket.de](https://mirror.codebucket.de/transmission/) and [Best-blocklist](https://github.com/waelisa/Best-blocklist) every day, and generate a blocklist that Transmission understands.
 
 ## Usage
 
-Select one of the two links below, copy it:
-
-```txt
-https://transmission-blocklist.mogeko.me/blocklist
-```
-
-OR
+Copy the following link:
 
 ```txt
 https://transmission-blocklist.mogeko.me/blocklist.gz
@@ -33,6 +27,7 @@ Click `Update` to update the blocklist.
 - <https://gist.github.com/shmup/29566c5268569069c256>
 - <https://www.iblocklist.com/lists.php>
 - <https://mirror.codebucket.de/transmission>
+- <https://github.com/waelisa/Best-blocklist>
 
 ## LICENSE
 
