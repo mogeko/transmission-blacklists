@@ -7,4 +7,4 @@ mkdir -p "${OUTPUT_DIR}"
 
 mv "${INPUT_FILE}" "${OUTPUT_DIR}/blocklist.txt"
 
-gzip -c "${INPUT_FILE}" > "${OUTPUT_DIR}/blocklist.gz"
+gzip -c "${OUTPUT_DIR}/blocklist.txt" > "${OUTPUT_DIR}/blocklist.gz"
