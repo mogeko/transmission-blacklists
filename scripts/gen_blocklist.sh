@@ -3,7 +3,7 @@
 USER_AGENT="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
 IBLOCKLIST="https://www.iblocklist.com/lists.php"
 CODEBUCKET="https://mirror.codebucket.de/transmission/blocklist.p2p"
-OUT_DIR=${1:-$(pwd)"/temp"}
+OUT_DIR=${1:-$(pwd)"/temp/"}
 
 mkdir -p "${OUT_DIR}"
 
