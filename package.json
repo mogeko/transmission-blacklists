@@ -2,8 +2,15 @@
   "name": "transmission-blocklist",
   "version": "0.1.0",
   "description": "An automatically updated blocklist for Transmission.",
+  "scripts": {
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "ramda": "^0.28.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
   },
   "packageManager": "yarn@3.3.0"
 }

@@ -14,8 +14,9 @@
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["arcanis.vscode-zipfs"],
+      "extensions": ["arcanis.vscode-zipfs", "esbenp.prettier-vscode"],
       "settings": {
+        "prettier.prettierPath": ".vscode/pnpify/prettier/index.js",
         "search.exclude": {
           "**/.yarn": true,
           "**/.pnp.*": true

@@ -28,9 +28,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["prettier", "npm:2.7.1"],\
             ["ramda", "npm:0.28.0"]\
           ],\
           "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["prettier", [\
+        ["npm:2.7.1", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.7.1-d1f40f5e1a-55a4409182.zip/node_modules/prettier/",\
+          "packageDependencies": [\
+            ["prettier", "npm:2.7.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["ramda", [\
@@ -47,6 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["transmission-blocklist", "workspace:."],\
+            ["prettier", "npm:2.7.1"],\
             ["ramda", "npm:0.28.0"]\
           ],\
           "linkType": "SOFT"\
