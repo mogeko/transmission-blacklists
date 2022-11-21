@@ -1,2 +1,3 @@
-# transmission-blacklists
-An automatically updated blacklist for transmission.
+# transmission-blocklist
+
+An automatically updated blocklist for transmission.

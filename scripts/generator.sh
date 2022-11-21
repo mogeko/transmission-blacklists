@@ -1,0 +1,22 @@
+#! /bin/env bash
+
+USER_AGENT="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+IBLOCKLIST="https://www.iblocklist.com/lists.php"
+CODEBUCKET="https://mirror.codebucket.de/transmission/blocklist.p2p"
+OUT_DIR=${1:-$(pwd)"/temp"}
+
+mkdir -p "${OUT_DIR}"
+
+curl -A "${USER_AGENT}" -s ${IBLOCKLIST} \
+    | sed -n "s/.*value='\(http:.*\)'.*/\1/p" \
+    | sed "s/\&amp;/\&/g" \
+    | sed "s/http/\"http/g" \
+    | sed "s/gz/gz\"/g" \
+    | xargs curl -s -L \
+    | gunzip \
+    | grep -Ev '^#' \
+    | sed "/^$/d" > "${OUT_DIR}/bt_blocklists"
+
+curl -A "${USER_AGENT}" -s ${CODEBUCKET} >> "${OUT_DIR}/bt_blocklists"
+
+sort --unique "${OUT_DIR}/bt_blocklists" > "${OUT_DIR}/bt_blocklists_deduplicated"
