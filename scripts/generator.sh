@@ -15,8 +15,8 @@ curl -A "${USER_AGENT}" -s ${IBLOCKLIST} \
     | xargs curl -s -L \
     | gunzip \
     | grep -Ev '^#' \
-    | sed "/^$/d" > "${OUT_DIR}/bt_blocklists"
+    | sed "/^$/d" > "${OUT_DIR}/blocklist"
 
-curl -A "${USER_AGENT}" -s ${CODEBUCKET} >> "${OUT_DIR}/bt_blocklists"
+curl -A "${USER_AGENT}" -s ${CODEBUCKET} >> "${OUT_DIR}/blocklist"
 
-sort --unique "${OUT_DIR}/bt_blocklists" > "${OUT_DIR}/bt_blocklists_deduplicated"
+sort --unique "${OUT_DIR}/blocklist" > "${OUT_DIR}/blocklist_deduplicated"
