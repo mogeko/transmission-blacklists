@@ -1,0 +1,9 @@
+{
+  "name": "transmission-blocklist",
+  "version": "0.1.0",
+  "description": "An automatically updated blocklist for Transmission.",
+  "dependencies": {
+    "ramda": "^0.28.0"
+  },
+  "packageManager": "yarn@3.3.0"
+}

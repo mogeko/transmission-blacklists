@@ -1,6 +1,6 @@
 {
-  "name": "Ubuntu",
-  "dockerFile": "Dockerfile",
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:16-bullseye",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -9,12 +9,18 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "uname -a",
+  // "postCreateCommand": "yarn install",
 
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["timonwong.shellcheck"]
+      "extensions": ["arcanis.vscode-zipfs"],
+      "settings": {
+        "search.exclude": {
+          "**/.yarn": true,
+          "**/.pnp.*": true
+        }
+      }
     }
   }
 
