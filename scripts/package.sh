@@ -5,6 +5,6 @@ OUTPUT_DIR=${2:-$(pwd)"/public/"}
 
 mkdir -p "${OUTPUT_DIR}"
 
-mv "${INPUT_FILE}" "${OUTPUT_DIR}/blocklist"
+mv "${INPUT_FILE}" "${OUTPUT_DIR}/blocklist.txt"
 
-gzip -c "${OUTPUT_DIR}/blocklist" > "${OUTPUT_DIR}/blocklist.gz"
+gzip -c "${OUTPUT_DIR}/blocklist.txt" > "${OUTPUT_DIR}/blocklist.gz"

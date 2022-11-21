@@ -8,11 +8,11 @@
   },
   "license": "${LICENSE}",
   "sizes": {
-    "blocklist": "${RAW_FILE_SIZE}KB",
+    "blocklist.txt": "${RAW_FILE_SIZE}KB",
     "blocklist.gz": "${GZ_FILE_SIZE}KB"
   },
   "resources": [
-    "${BASE_URL}/blocklist",
+    "${BASE_URL}/blocklist.txt",
     "${BASE_URL}/blocklist.gz"
   ],
   "env": {
