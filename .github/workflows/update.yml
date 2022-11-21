@@ -1,0 +1,52 @@
+name: Auto Update
+
+on:
+  schedule:
+    - cron: "30 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v2
+      - name: Gen blocklist
+        run: ./scripts/gen_blocklist.sh
+      - name: Pack blocklist
+        run: ./scripts/package.sh
+      - name: Gen metadata
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+          AUTHOR_EMAIL: zhengjunyi@live.com
+          AUTHOR_URL: https://mogeko.me
+          LICENSE: MIT
+        run: ./scripts/gen_status.sh
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
+  deploy:
+    if: github.ref_name == 'master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: update
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

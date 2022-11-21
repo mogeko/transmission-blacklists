@@ -1,0 +1,23 @@
+{
+  "homepage": "https://github.com/${GITHUB_REPOSITORY}",
+  "author": {
+    "name": "${GITHUB_REPOSITORY_OWNER}",
+    "email": "${AUTHOR_EMAIL}",
+    "github": "https://github.com/${GITHUB_REPOSITORY_OWNER}",
+    "url": "${AUTHOR_URL}"
+  },
+  "license": "${LICENSE}",
+  "sizes": {
+    "blocklist": "${RAW_FILE_SIZE}KB",
+    "blocklist.gz": "${GZ_FILE_SIZE}KB"
+  },
+  "resources": [
+    "${BASE_URL}/blocklist",
+    "${BASE_URL}/blocklist.gz"
+  ],
+  "env": {
+    "RUNNER_OS": "${RUNNER_OS}",
+    "RUNNER_ARCH": "${RUNNER_ARCH}"
+  },
+  "timestamp": "${TIMESTAMP_UTC}"
+}
