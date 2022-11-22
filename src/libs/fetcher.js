@@ -11,13 +11,19 @@ exports.fetchBlocklists = R.curry(async (url, opts) => {
 
   if (R.not(await fs.promises.stat(outPath).catch(() => false))) {
     await io.mkdirP(path.dirname(outPath));
+    await fs.promises.writeFile(outPath, "");
     await fetch(url, {
       headers: new Headers({ "User-Agent": ua }),
       method: "GET",
     }).then((res) => {
       const outStream = fs.createWriteStream(outPath);
       const gunzip = zlib.createGunzip();
-      res.body.pipe(gunzip).pipe(outStream);
+
+      if (R.endsWith("gz", url)) {
+        res.body.pipe(gunzip).pipe(outStream);
+      } else {
+        res.body.pipe(outStream);
+      }
     });
   }
 
