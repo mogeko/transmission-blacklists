@@ -1,6 +1,5 @@
-const zlib = require("zlib");
-const fs = require("fs");
-const path = require("path");
+const fetcher = require("./fetcher");
+
 const fetch = require("node-fetch");
 const jsdom = require("jsdom");
 const R = require("ramda");
@@ -21,17 +20,7 @@ exports.fetchURLs = R.curry(async (url, { "User-Agent": ua }) => {
 
 exports.fetchBlocklists = R.curry(async (url, { "User-Agent": ua }) => {
   const params = new URL(url).searchParams;
-  const outPath = path.join(__dirname, `../../temp/${params.get("list")}`);
+  const filename = params.get("list");
 
-  if (R.not(await fs.promises.stat(outPath).catch(() => false))) {
-    await fetch(url, {
-      headers: new Headers({ "User-Agent": ua }),
-    }).then((res) => {
-      const outStream = fs.createWriteStream(outPath);
-      const gunzip = zlib.createGunzip();
-      res.body.pipe(gunzip).pipe(outStream);
-    });
-  }
-
-  return fs.createReadStream(outPath);
+  return fetcher.fetchBlocklists(url, { "User-Agent": ua, filename });
 });
